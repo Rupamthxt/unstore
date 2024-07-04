@@ -17,7 +17,7 @@ class UnStore extends StatefulWidget {
 
 class _UnStoreState extends State<UnStore> {
   File ? _selectedImage;
-  var url = Uri.https('unstore.rupam.online', '/upload');
+  var url = Uri.https('your_domain', '/upload'); // TODO:Change to your domain
   var _imagePath = [];
 
   @override
@@ -75,7 +75,7 @@ class _UnStoreState extends State<UnStore> {
     print(response.statusCode);
   }
   getData() async{
-    var getUrl = Uri.https('unstore.rupam.online', '/data');
+    var getUrl = Uri.https('your_domain', '/data'); // TODO:Change to your domain
     var response = await http.get(getUrl);
     var data = jsonDecode(response.body);
     data = data['path'];
@@ -91,7 +91,8 @@ Widget returnContainer(String path){
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(10.0),
     ),
-    child: Image.network('https://unstore.rupam.online/images/$path'),
+    // TODO:Change to your domain
+    child: Image.network('https://your_domain/images/$path'),
   );
 }
 
